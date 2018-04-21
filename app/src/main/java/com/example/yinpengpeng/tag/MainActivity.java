@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button tag1;
     private Button tag2;
     private Button tag3;
+    private Button tag4;
 
     private String name="a";
     private int age=1;
@@ -34,19 +35,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext=this;
+
         tag1=findViewById(R.id.tag1);
         tag2=findViewById(R.id.tag2);
         tag3=findViewById(R.id.tag3);
+        tag4=findViewById(R.id.tag4);
         show=findViewById(R.id.show);
 
         tag1.setTag(1);
         tag2.setTag(2);
         tag3.setTag(3);
+        tag4.setTag(4);
 
         tag1.setOnClickListener(this);
         tag2.setOnClickListener(this);
         tag3.setOnClickListener(this);
-
+        tag4.setOnClickListener(this);
 
     }
 
@@ -80,7 +84,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     e.printStackTrace();
                 }
                 break;
-                default:
+            case 4:
+                try {
+                    updateData("aaa",18);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            default:
                     break;
         }
     }
@@ -112,16 +122,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return dao.queryForEq("name","hanmeimei");
     }
 
-    private void updateData() throws SQLException {
+    private void updateData(String name,int age) throws SQLException {
         DatabaseHelper helper=DatabaseHelper.getInstance(MainActivity.this);
         Dao dao=helper.getDao(People.class);
-        CloseableIterator<People>iterator=dao.closeableIterator();
-        QueryBuilder builder=dao.queryBuilder();
-        List<People>list=builder.where().eq("age",18).query();
-
-
+        List list=dao.queryForEq("name",name);
         Log.d(TAG, list.size()+"");
-        Log.d(TAG, list.get(1).name);
+
+//        CloseableIterator<People>iterator=dao.closeableIterator();
+//        QueryBuilder builder=dao.queryBuilder();
+//        List<People>list=builder.where().eq("age",18).query();
+
     }
 
     private void queryData(String sex)throws SQLException{
