@@ -10,17 +10,27 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="tag1"
+        android:text="创建/新增"
         android:id="@+id/tag1"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="tag2"
+        android:text="查询"
         android:id="@+id/tag2"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tag3"
-        android:text="tag3"/>
+        android:text="删除"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tag4"
+        android:text="修改"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/show"/>
 
 </LinearLayout>

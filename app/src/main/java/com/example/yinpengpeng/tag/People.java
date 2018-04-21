@@ -26,7 +26,7 @@ public class People {
     @DatabaseField(columnName = "sex")
     private String sex;
     @DatabaseField(columnName = "age")
-    private int age;
+    public int age;
 
 
     /**
@@ -36,9 +36,9 @@ public class People {
 
     }
 
-    public People(PeopleBean peopleBean){
-        this.name=peopleBean.getName();
-        this.sex=peopleBean.getSex();
-        this.age=peopleBean.getAge();
+    public People(String name,String sex,int age){
+        this.name=name;
+        this.sex=sex;
+        this.age=age;
     }
 }
